@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 # Author: Park Lam<lqmonline@gmail.com>
 
-#BASEDIR=$(dirname $(readlink -f "$BASH_SOURCE"))
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-echo "$BASEDIR"
 
-echo ". $BASEDIR/_bashrc" | sed -e "s#$HOME#\$HOME#g" - >> ~/.bashrc
-echo ". $BASEDIR/_bash_alias" | sed -e "s#$HOME#\$HOME#g" - >> ~/.bashrc
+sed "s#$HOME#\$HOME#g" - <<EOF >> ~/.bashrc
+# Link to MyBash: https://github.com/parklam/mybash.git"
+if [ -x $BASEDIR ]; then
+    eval "\$( cd $BASEDIR/ && git pull >/dev/null 2>&1 )"
+    . $BASEDIR/_bashrc
+    . $BASEDIR/_bash_alias
+fi
+EOF
 
-rm ~/.vimrc 2> /dev/null && ln -v -s "${BASEDIR}/_vimrc" ~/.vimrc
+rm ~/.vimrc > /dev/null 2>&1
+ln -s "${BASEDIR}/_vimrc" ~/.vimrc

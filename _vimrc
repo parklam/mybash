@@ -15,7 +15,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'jeroenbourgois/vim-actionscript'
+" Plugin 'jeroenbourgois/vim-actionscript'
 Plugin 'cespare/mxml.vim'
 Plugin 'vim-scripts/xmledit'
 Plugin 'msanders/cocoa.vim'
@@ -34,6 +34,8 @@ Plugin 'mxw/vim-jsx'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'tpope/vim-fugitive'
 Plugin 'lepture/vim-jinja'
+Plugin 'stephpy/vim-yaml'
+Plugin 'dense-analysis/ale'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -195,6 +197,7 @@ imap <F12> :set nu!<CR>
 
 " Terminal
 nmap <C-c> :vert term<CR>
+tnoremap <Esc> <C-w>N<CR>
 
 " Toggle NERDTree window
 nmap <silent> <F9> :NERDTreeToggle<CR>

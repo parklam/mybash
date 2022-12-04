@@ -68,7 +68,7 @@ setup-bash:
 		&& echo "[ -f ${PROJECT_ROOT}/_bashrc ] && . ${PROJECT_ROOT}/_bashrc" \
 		| sed -e "s|$${HOME}|\$${HOME}|g" >> ~/.bashrc \
 		|| echo "" > /dev/null
-	@[ -z "$$(grep -i '_bashrc' ~/.bashrc)" ] \
+	@[ -z "$$(grep -i '_bash_alias' ~/.bashrc)" ] \
 		&& echo "[ -f ${PROJECT_ROOT}/_bash_alias ] && . ${PROJECT_ROOT}/_bash_alias" \
 		| sed -e "s|$${HOME}|\$${HOME}|g" >> ~/.bashrc \
 		|| echo "" > /dev/null
@@ -93,14 +93,14 @@ setup-pyenv:
 .PHONY: setup-vim
 setup-vim:
 	@sudo apt-get install -y vim exuberant-ctags
-	@rm ~/.vimrc > /dev/null 2>&1
+	@rm ~/.vimrc > /dev/null 2>&1 ||true
 	@ln -s "${PROJECT_ROOT}/_vimrc" ~/.vimrc
 	@git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	@vim -c ':PluginInstall'
 	@echo "Vim has been installed"
 
 .PHONY: setup
-setup: setup-bash setup-pyenv setup-vim
+setup: setup-bash setup-docker setup-pyenv setup-vim
 
 .PHONY: purge
 purge:

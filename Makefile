@@ -86,8 +86,8 @@ setup-pyenv:
 	@sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev \
 		libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
 		xz-utils tk-dev libffi-dev liblzma-dev
-	@curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
-	@echo "Usage: pyenv install 3.8.3"
+	@curl -sSL https://pyenv.run | bash
+	@echo "Usage: pyenv install 3.8.3 && pyenv global 3.8.3"
 	@echo "Pyenv has been installed."
 
 .PHONY: setup-vim

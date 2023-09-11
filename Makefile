@@ -79,7 +79,7 @@ setup-docker:
 	@command -v docker >/dev/null 2>&1 \
 		|| ( curl -sSL https://get.docker.io/ | sh )
 	@command -v docker-compose >/dev/null 2>&1 \
-		|| ( pip3 install -U pip && pip3 install docker-compose )
+		|| ( python3 -m pip install -U pip && python3 -m pip install docker-compose )
 
 .PHONY: setup-pyenv
 setup-pyenv:

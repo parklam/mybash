@@ -63,7 +63,7 @@ setup-bash:
 		&& sudo apt install -y \
 			dnsutils apt-transport-https ca-certificates curl \
 			software-properties-common python3 python3-pip \
-			python-setuptools fail2ban
+			python3-setuptools fail2ban
 	@[ -z "$$(grep -i '_bashrc' ~/.bashrc)" ] \
 		&& echo "[ -f ${PROJECT_ROOT}/_bashrc ] && . ${PROJECT_ROOT}/_bashrc" \
 		| sed -e "s|$${HOME}|\$${HOME}|g" >> ~/.bashrc \
